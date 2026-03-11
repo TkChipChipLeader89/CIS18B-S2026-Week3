@@ -14,7 +14,7 @@ public class Order {
     private String orderId;
     
     //constructor
-    public Order(String orderId, List<MenuItem> items){
+    public Order(String orderId){
         //validation checks
         if(orderId==null || orderId.isBlank()){
             throw new IllegalArgumentException("Order ID cannot be null or blank!");
