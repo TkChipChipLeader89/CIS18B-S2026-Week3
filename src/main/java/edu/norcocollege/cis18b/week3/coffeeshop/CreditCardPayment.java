@@ -20,7 +20,7 @@ public class CreditCardPayment implements PaymentMethod {
     @Override
     public PaymentReceipt pay(String orderId, BigDecimal amount) {
         //Process Payment 
-        String method = "Credit Card (****" + last4Digits + ")";
+        String method = "CREDIT_CARD(****" + last4Digits + ")";
         // Return a payment receipt
         return new PaymentReceipt(orderId, amount, method, java.time.Instant.now());
     }

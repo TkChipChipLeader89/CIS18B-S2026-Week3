@@ -3,9 +3,10 @@ package edu.norcocollege.cis18b.week3.coffeeshop;
 
 //imports
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 //class for beverage menu item
-public class Beverage extends MenuItem{
+public abstract class Beverage extends MenuItem{
     //enum for beverage size
     public enum Size {
         SMALL, 
@@ -21,16 +22,17 @@ public class Beverage extends MenuItem{
             throw new IllegalArgumentException("Size cannot be null!");
         }
         this.size = size;
+        BigDecimal price = basePrice.multiply(getSizeMultiplier());
     }
     //Size multiplier method
     public BigDecimal getSizeMultiplier(){
         switch(size){
             case SMALL:
-                return new BigDecimal(1.00);
+                return new BigDecimal("1.00");
             case MEDIUM:
-                return new BigDecimal(1.20);
+                return new BigDecimal("1.20");
             case LARGE:
-                return new BigDecimal(1.40);
+                return new BigDecimal("1.40");
             default:
                 throw new IllegalStateException("Unexpected size: " + size);
         }

@@ -3,6 +3,7 @@ package edu.norcocollege.cis18b.week3.coffeeshop;
 
 //imports
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 // Main application class
 public class App {
@@ -17,7 +18,7 @@ public class App {
         // Create Custom Beverage
         CustomDrink customDrink = new CustomDrink.Builder()
             .size(Beverage.Size.SMALL)
-            .milk(CustomDrink.Milk.OAT)
+            .syrup(CustomDrink.Syrup.CARAMEL)
             .espressoShots(2)
             .addExtra("Whipped Cream")
             .build();
@@ -27,6 +28,6 @@ public class App {
         order.addItem(coldBrew);
         order.addItem(customDrink);
         // Display total
-        System.out.println("Order Total: $" + order.total());
+        System.out.println("Order Total: $" + order.total().setScale(2, RoundingMode.HALF_UP));
     }
 }

@@ -3,6 +3,7 @@ package edu.norcocollege.cis18b.week3.coffeeshop;
 
 //imports
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 //class for cold brew menu item
 public class ColdBrew extends Beverage{
@@ -15,6 +16,6 @@ public class ColdBrew extends Beverage{
     //Override get price method to include size multiplier
     @Override
     public BigDecimal getPrice() {
-        return super.getPrice().multiply(getSizeMultiplier());
+        return super.getPrice().multiply(getSizeMultiplier()).setScale(2, RoundingMode.HALF_UP);
     }
 }

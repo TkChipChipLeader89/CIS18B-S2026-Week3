@@ -3,6 +3,7 @@ package edu.norcocollege.cis18b.week3.coffeeshop;
 
 //imports
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -35,14 +36,16 @@ public class CustomDrink extends Beverage {
     public BigDecimal getPrice() {
         BigDecimal price = super.getPrice();
         // Add cost for extra espresso shots
-        price = price.add(new BigDecimal(espressoShots).multiply(new BigDecimal("0.75")));
+        if(espressoShots > 1) {
+            price = price.add(new BigDecimal("0.75").multiply(new BigDecimal(espressoShots - 1)));
+        }
         // Add cost for syrup
         if(syrup != Syrup.NONE) {
             price = price.add(new BigDecimal("0.50"));
         }
         // Add cost for each extra
-        price = price.add(new BigDecimal(extras.size()).multiply(new BigDecimal("0.25")));
-        return price;
+        price = price.add(new BigDecimal("0.25").multiply(new BigDecimal(extras.size())));
+        return price.setScale(2, RoundingMode.HALF_UP);
     }
     // Builders for custom drink
     public static class Builder {

@@ -5,6 +5,7 @@ package edu.norcocollege.cis18b.week3.coffeeshop;
 import java.util.List;
 import java.util.ArrayList;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Collections;
 
 //class: Order
@@ -21,7 +22,7 @@ public class Order {
         }
         //initialization
         this.orderId = orderId;
-        this.items = new ArrayList<>(items);
+        this.items = new ArrayList<>();
     }
     //add item method
     public void addItem(MenuItem item){

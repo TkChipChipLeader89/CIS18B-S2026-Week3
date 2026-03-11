@@ -12,7 +12,7 @@ public class GiftCardPayment implements PaymentMethod{
     //Constuctor
     public GiftCardPayment(BigDecimal balance) {
         if (balance == null || balance.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException("Balance must be greater or equal to 0!");
+            throw new IllegalStateException("Balance must be greater or equal to 0!");
         }
         this.balance = balance;
     }
@@ -20,10 +20,10 @@ public class GiftCardPayment implements PaymentMethod{
     @Override
     public PaymentReceipt pay(String orderId, BigDecimal amount) {
         if (balance.compareTo(amount) < 0) {
-            throw new IllegalArgumentException("Insufficient balance on gift card!");
+            throw new IllegalStateException("Insufficient balance on gift card!");
         }
         balance = balance.subtract(amount);
-        return new PaymentReceipt(orderId, amount, "Gift Card", Instant.now());
+        return new PaymentReceipt(orderId, amount, "GIFT_CARD", Instant.now());
     }
     // Getter for balance
     public BigDecimal getBalance() {
