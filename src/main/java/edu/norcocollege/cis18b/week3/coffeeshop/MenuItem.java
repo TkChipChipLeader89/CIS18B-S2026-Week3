@@ -1,3 +1,6 @@
+//package
+package edu.norcocollege.cis18b.week3.coffeeshop;
+
 //imports
 import java.math.BigDecimal;
 
