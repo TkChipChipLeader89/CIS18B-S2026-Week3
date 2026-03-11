@@ -9,8 +9,8 @@ public class ColdBrew extends Beverage{
     //Base price for a cold brew
     private static final BigDecimal BASE_PRICE = new BigDecimal("4.00");
     //Constructor
-    public ColdBrew(String sku, Size size){
-        super(sku, "Cold Brew", BASE_PRICE, size);
+    public ColdBrew(Size size){
+        super("COLD_BREW", "Cold Brew", BASE_PRICE, size);
     }
     //Override get price method to include size multiplier
     @Override

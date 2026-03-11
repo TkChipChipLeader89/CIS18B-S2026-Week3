@@ -22,8 +22,8 @@ public class CustomDrink extends Beverage {
     private List<String> extras;
     private static final BigDecimal BASE_PRICE = new BigDecimal("4.25");
     //Constructor
-    public CustomDrink(String sku, Size size, Milk milk, Syrup syrup, Temperature temperature, int espressoShots, List<String> extras) {
-        super(sku, "Custom Drink", BASE_PRICE, size);
+    public CustomDrink(Size size, Milk milk, Syrup syrup, Temperature temperature, int espressoShots, List<String> extras) {
+        super("CUSTOM", "Custom Drink", BASE_PRICE, size);
         this.milk = milk;
         this.syrup = syrup;
         this.temperature = temperature;
@@ -47,7 +47,6 @@ public class CustomDrink extends Beverage {
     // Builders for custom drink
     public static class Builder {
         //Private fields & default values for builder
-        private String sku;
         private Size size = Size.MEDIUM;
         private Milk milk = Milk.WHOLE;
         private Syrup syrup = Syrup.NONE;
@@ -55,9 +54,6 @@ public class CustomDrink extends Beverage {
         private int espressoShots = 1;
         private List<String> extras = new ArrayList<>();
         //Builder methods
-        public Builder(String sku) {
-            this.sku = sku;
-        }
         public Builder size(Size size) {
             this.size = size;
             return this;
@@ -89,7 +85,7 @@ public class CustomDrink extends Beverage {
             return this;
         }
         public CustomDrink build() {
-            return new CustomDrink(sku, size, milk, syrup, temperature, espressoShots, extras);
+            return new CustomDrink(size, milk, syrup, temperature, espressoShots, extras);
         }
     }
 }

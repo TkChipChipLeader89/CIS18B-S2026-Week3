@@ -12,10 +12,10 @@ public class App {
         // Display base price for a latte
         System.out.println("Base price for a latte: $" + catalog.getBasePrice("LATTE"));
         // Create Beverages
-        Latte latte = new Latte("SKU123", Beverage.Size.MEDIUM);
-        ColdBrew coldBrew = new ColdBrew("SKU456", Beverage.Size.LARGE);
+        Latte latte = new Latte(Beverage.Size.MEDIUM);
+        ColdBrew coldBrew = new ColdBrew(Beverage.Size.LARGE);
         // Create Custom Beverage
-        CustomDrink customDrink = new CustomDrink.Builder("SKU789")
+        CustomDrink customDrink = new CustomDrink.Builder()
             .size(Beverage.Size.SMALL)
             .milk(CustomDrink.Milk.OAT)
             .espressoShots(2)
