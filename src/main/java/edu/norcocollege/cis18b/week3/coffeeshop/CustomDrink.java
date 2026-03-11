@@ -21,6 +21,7 @@ public class CustomDrink extends Beverage {
     private Temperature temperature;
     private int espressoShots;
     private List<String> extras;
+    //Base price for a custom drink
     private static final BigDecimal BASE_PRICE = new BigDecimal("4.25");
     //Constructor
     public CustomDrink(Size size, Milk milk, Syrup syrup, Temperature temperature, int espressoShots, List<String> extras) {
@@ -31,9 +32,9 @@ public class CustomDrink extends Beverage {
         this.espressoShots = espressoShots;
         this.extras = extras;
     }
-    //Override get price method to include customizations
     @Override
     public BigDecimal getPrice() {
+        //Override get price method to include customizations
         BigDecimal price = super.getPrice();
         // Add cost for extra espresso shots
         if(espressoShots > 1) {
@@ -45,6 +46,7 @@ public class CustomDrink extends Beverage {
         }
         // Add cost for each extra
         price = price.add(new BigDecimal("0.25").multiply(new BigDecimal(extras.size())));
+        // Set final price with 2 decimal places
         return price.setScale(2, RoundingMode.HALF_UP);
     }
     // Builders for custom drink

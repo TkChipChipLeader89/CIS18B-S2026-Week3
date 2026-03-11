@@ -22,7 +22,6 @@ public abstract class Beverage extends MenuItem{
             throw new IllegalArgumentException("Size cannot be null!");
         }
         this.size = size;
-        BigDecimal price = basePrice.multiply(getSizeMultiplier());
     }
     //Size multiplier method
     public BigDecimal getSizeMultiplier(){
@@ -36,5 +35,10 @@ public abstract class Beverage extends MenuItem{
             default:
                 throw new IllegalStateException("Unexpected size: " + size);
         }
+    }
+    //override get price
+    @Override
+    public BigDecimal getPrice() {
+        return super.getPrice().multiply(getSizeMultiplier()).setScale(2, RoundingMode.HALF_UP);
     }    
 }

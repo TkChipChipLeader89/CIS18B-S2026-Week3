@@ -13,9 +13,4 @@ public class Latte extends Beverage{
     public Latte(Size size){
         super("LATTE", "Latte", BASE_PRICE, size);
     }
-    //Override get price method to include size multiplier
-    @Override
-    public BigDecimal getPrice() {
-        return super.getPrice().multiply(getSizeMultiplier().setScale(2, RoundingMode.HALF_UP));
-    }
 }

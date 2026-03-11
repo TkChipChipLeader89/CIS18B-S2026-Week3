@@ -27,7 +27,7 @@ public class MenuItem{
         //If all checks pass, assign values
         this.sku = sku;
         this.name = name;
-        this.price = price;
+        this.price = price.setScale(2);
     }
     //Getters
     public String getSku() {

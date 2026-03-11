@@ -13,9 +13,4 @@ public class ColdBrew extends Beverage{
     public ColdBrew(Size size){
         super("COLD_BREW", "Cold Brew", BASE_PRICE, size);
     }
-    //Override get price method to include size multiplier
-    @Override
-    public BigDecimal getPrice() {
-        return super.getPrice().multiply(getSizeMultiplier()).setScale(2, RoundingMode.HALF_UP);
-    }
 }
