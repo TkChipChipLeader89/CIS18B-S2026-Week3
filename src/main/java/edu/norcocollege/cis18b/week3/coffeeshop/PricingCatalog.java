@@ -20,7 +20,7 @@ public class PricingCatalog {
     }
     // Method to get price for a menu item
     public BigDecimal getBasePrice(String productKey) {
-        return switch(productKey) {
+        switch(productKey) {
             case "LATTE":
                 return new BigDecimal("4.50");
             case "COLD_BREW":
@@ -29,6 +29,6 @@ public class PricingCatalog {
                 return new BigDecimal("4.25");
             default:
                 throw new IllegalArgumentException("Unknown product key: " + productKey);
-        };
+        }
     }
 }

@@ -5,7 +5,7 @@ package edu.norcocollege.cis18b.week3.coffeeshop;
 import java.util.List;
 import java.util.ArrayList;
 import java.math.BigDecimal;
-import java.util.collections;
+import java.util.Collections;
 
 //class: Order
 public class Order {
